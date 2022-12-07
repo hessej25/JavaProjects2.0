@@ -68,7 +68,7 @@ public class Main {
 						numHpPotions --;
 						System.out.println("\t> You drink a potion and restore " + potionHeal + " HP.");
 						System.out.println("\t Your total health is now " + hp + " HP.");
-						System.out.println("\t You have " + numHpPotions + "remaining.\n");
+						System.out.println("\t You have " + numHpPotions + " remaining.\n");
 					}
 					else {
 						System.out.println("\t> You have no more remaining potions. Fight more to find some.");
@@ -87,38 +87,38 @@ public class Main {
 					break;
 				}
 				
-				System.out.println("----------------------------------------------------");
-				System.out.println(" # " + enemy + " was defeated # " );
-				System.out.println("You have " + hp + " HP left. # ");
 				
-				if(rand.nextInt(100) < potionChance) {
-					numHpPotions ++;
-					System.out.println(" # The " + enemy + " dropped a Health Potion # ");
-					System.out.println(" # You have " + numHpPotions + " Potions now. # ");
-				}
-				
-				System.out.println("----------------------------------------------------");
-				System.out.println("Continue fighting?" );
-				System.out.println("1. Continue going");
-				System.out.println("2. Leave the pit");
+			}
 			
+			System.out.println("----------------------------------------------------");
+			System.out.println(" # " + enemy + " was defeated # " );
+			System.out.println("You have " + hp + " HP left. # ");
+				
+			if(rand.nextInt(100) < potionChance) {
+				numHpPotions ++;
+				System.out.println(" # The " + enemy + " dropped a Health Potion # ");
+				System.out.println(" # You have " + numHpPotions + " Potions now. # ");
+			}
+				
+			System.out.println("----------------------------------------------------");
+			System.out.println("Continue fighting?" );
+			System.out.println("1. Continue going");
+			System.out.println("2. Leave the pit");
+			
+			String input = sc.nextLine();
+				
+			while(!input.equals("1") && !input.equals("2")) {
+				System.out.println("Invalid Input");
 				input = sc.nextLine();
+			}
 				
-				while(!input.equals("1") && !input.equals("2")) {
-					System.out.println("Invalid Input");
-					input = sc.nextLine();
-				}
-				
-				if(input.equals("1")) {
-					System.out.println("You continue to fight.");
-				}
-				else if(input.equals("2")) {
-					System.out.println("You leave the pit and stop fighting");
-					break;
-				}			
+			if(input.equals("1")) {
+				System.out.println("You continue to fight.");
+			}
+			else if(input.equals("2")) {
+				System.out.println("You leave the pit and stop fighting");
+				break;	
 			}
 		}	
-		
-	}
-	
+	}	
 }
