@@ -53,7 +53,7 @@ public class Main {
 					enemyHealth -= damageDealt;
 					hp -= damageTaken;
 					
-					System.out.println("\t> You attacked " + enemy + "for " + damageDealt + " damage.");
+					System.out.println("\t> You attacked " + enemy + " for " + damageDealt + " damage.");
 					System.out.println("\t> You were damaged for " + damageTaken);
 				
 					if(hp < 1) {
@@ -76,10 +76,46 @@ public class Main {
 				}
 				else if(input.equals("3")) {//run away
 					System.out.println("\tYou ran away from " + enemy);
+					continue GAME;
 				}
 				else {
 					System.out.println("\tInvalid Input ");
 				}
+				
+				if(hp < 1) {
+					System.out.println("\t You are too weak to continue and pass out unknowing of what will happen next.");
+					break;
+				}
+				
+				System.out.println("----------------------------------------------------");
+				System.out.println(" # " + enemy + " was defeated # " );
+				System.out.println("You have " + hp + " HP left. # ");
+				
+				if(rand.nextInt(100) < potionChance) {
+					numHpPotions ++;
+					System.out.println(" # The " + enemy + " dropped a Health Potion # ");
+					System.out.println(" # You have " + numHpPotions + " Potions now. # ");
+				}
+				
+				System.out.println("----------------------------------------------------");
+				System.out.println("Continue fighting?" );
+				System.out.println("1. Continue going");
+				System.out.println("2. Leave the pit");
+			
+				input = sc.nextLine();
+				
+				while(!input.equals("1") && !input.equals("2")) {
+					System.out.println("Invalid Input");
+					input = sc.nextLine();
+				}
+				
+				if(input.equals("1")) {
+					System.out.println("You continue to fight.");
+				}
+				else if(input.equals("2")) {
+					System.out.println("You leave the pit and stop fighting");
+					break;
+				}			
 			}
 		}	
 		
