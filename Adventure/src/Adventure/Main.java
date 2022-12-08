@@ -81,13 +81,11 @@ public class Main {
 				else {
 					System.out.println("\tInvalid Input ");
 				}
-				
-				if(hp < 1) {
-					System.out.println("\t You are too weak to continue and pass out unknowing of what will happen next.");
-					break;
-				}
-				
-				
+			}
+			
+			if(hp < 1) {
+				System.out.println("\t You are too weak to continue and pass out unknowing of what will happen next.");
+				break;
 			}
 			
 			System.out.println("----------------------------------------------------");
